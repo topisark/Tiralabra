@@ -1,19 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package tiralabra;
 
-/**
- *
- * @author O910396
- */
+import java.io.File;
+import java.io.FileNotFoundException;
+
 public class Tiralabra {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws FileNotFoundException {
+        File testiTiedosto = new File("testi.txt");
+        Reader testi = new Reader(testiTiedosto);
     }
 }
