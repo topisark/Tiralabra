@@ -10,36 +10,28 @@ import java.util.HashMap;
 //Virheentarkistus?
 public class Reader {
 
-    private HashMap<String, Integer> symbols;
+    private HashMap<Character, Integer> symbols;
 
     public Reader(File fileHandle) throws FileNotFoundException, IOException {
         int raw;
+        int amount;
+        symbols = new HashMap<>();
         FileReader lukija = new FileReader("testi.txt");
         while ((raw = lukija.read()) != -1) {
             char ch = (char) raw;
-            System.out.println(ch);
+            //System.out.print(ch);
+            if (symbols.containsKey(ch)) {
+                amount = symbols.get(ch) + 1;
+                symbols.put(ch, amount);
+            } else {
+                symbols.put(ch, 1);
+            }
         }
-        
-        
-        
-        
-        
-        
-        
+        //System.out.println("");
+        //System.out.println(symbols.toString());
     }
-//        int amount;
-//        String symbol;
-//        Scanner fileReader = new Scanner(fileHandle);
-//        while (fileReader.hasNext()) {
-//            symbol = fileReader.next();
-//            System.out.println(symbol);
-//            if (symbols.containsKey(symbol)) {
-//                amount = symbols.get(symbol);
-//                symbols.put(symbol, amount + 1);
-//            } else {
-//                symbols.put(symbol, 1);
-//            }
-//        }
-//        System.out.println(symbols.toString());
-//    }
+
+    public HashMap<Character, Integer> getSymbols() {
+        return symbols;
+    }
 }
