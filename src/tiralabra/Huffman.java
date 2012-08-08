@@ -8,8 +8,8 @@ public class Huffman {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
         File testiTiedosto = new File("testi.txt");
-        Reader testi = new Reader(testiTiedosto);
-        Tree koodaaja = new Tree(testi);
-        
+        Reader lukija = new Reader(testiTiedosto);
+        Tree puu = new Tree(lukija);
+        Writer kirjottaja = new Writer(puu.getTree(), "koodattu");
     }
 }

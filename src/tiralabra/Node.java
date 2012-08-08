@@ -18,6 +18,14 @@ public class Node implements Comparable{
         weight = l.getWeight() + r.getWeight();
     }
     
+    public Node getLeft() {
+        return left;
+    }
+    
+    public Node getRight() {
+        return right;
+    }
+    
     public int getWeight() {
         return weight;
     }

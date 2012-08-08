@@ -28,7 +28,7 @@ public class Tree {
             Node combined = new Node(left, right);
             prioq.add(combined);
         }
-        
+        System.out.println("Tree constructed.");
     }
     
     private void addToQueue(Node s) {
@@ -47,5 +47,13 @@ public class Tree {
             Node newNode = new Node(ch, moi);
             addToQueue(newNode);
         }
+    }
+    
+    public Node getTree() {
+        if (prioq.size() != 1) {
+            System.out.println("No tree found.");
+            System.exit(0);
+        }
+        return prioq.poll();
     }
 }
