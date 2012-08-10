@@ -10,15 +10,24 @@ public class Writer {
     Node tree;
     File handle;
     FileOutputStream writer;
+    Reader lukija;
+    File fileToRead;
 
     public Writer(Node tree, String filename) throws FileNotFoundException, IOException {
         this.tree = tree;
         handle = new File(filename);
         writer = new FileOutputStream(handle);
-        writeCode();
+        File fileToRead = new File("testi.txt");  
+        lukija = new Reader(fileToRead);
+    }
+    
+    private void charToBits() throws IOException {
+        char ch = lukija.readCharacter(); //Ota sama hashmap ja muuta value biteiks?
+        
+        
     }
 
-    private void writeCode() throws IOException {
+    private int bitsToInt() throws IOException {
         boolean[] bits = {false, false, false, true, true, false, false, false};
         int data = 0;
         for (int i = 0; i < 8; i++) {
@@ -26,6 +35,6 @@ public class Writer {
                 data += (1 << (7-i));
             }
         }
-        System.out.println(data);
+        return data;
     }
 }
