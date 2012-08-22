@@ -11,6 +11,6 @@ public class Huffman {
         Reader lukija = new Reader(testiTiedosto);
         lukija.countCharacters();
         Tree puu = new Tree(lukija);
-        Writer kirjottaja = new Writer(puu.getTree(), "koodattu");
+        Writer kirjottaja = new Writer(puu, "koodattu");
     }
 }

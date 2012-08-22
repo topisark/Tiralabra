@@ -2,7 +2,7 @@ package tiralabra;
 
 public class Node implements Comparable{
     
-    private char symbol;
+    private int symbol;
     private int weight;
     private Node left;
     private Node right;
@@ -30,8 +30,12 @@ public class Node implements Comparable{
         return weight;
     }
     
-    public char getSymbol() {
+    public int getSymbol() {
         return symbol;
+    }
+    
+    public boolean isLeaf() {
+        return right == null && left == null;
     }
 
     @Override
