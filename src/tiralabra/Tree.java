@@ -57,7 +57,7 @@ public class Tree {
     }
 
     private void iterateMap() {
-        Set amountSet = symbols.entrySet();       //Varmaan olis parempiki tapa!
+        Set amountSet = symbols.entrySet();      
         Iterator iter = amountSet.iterator();
         while (iter.hasNext()) {
             Object object = iter.next();
