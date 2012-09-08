@@ -6,14 +6,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
-
-//Virheentarkistus?
 public class Reader {
 
     private HashMap<Character, Integer> symbols;
     private FileReader lukija;
     private File handle;
-    
+
     public Reader(File fileHandle) throws FileNotFoundException {
         handle = fileHandle;
         lukija = new FileReader(handle);
@@ -32,8 +30,10 @@ public class Reader {
         if (raw != -1) {
             char ch = (char) raw;
             return ch;
+        } else {
+            return '\r';
         }
-        return '\r';
+
     }
 
     public void countCharacters() throws IOException, FileNotFoundException {
@@ -54,6 +54,4 @@ public class Reader {
             }
         }
     }
-
-
 }
