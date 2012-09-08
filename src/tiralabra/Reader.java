@@ -6,13 +6,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
+
 //Virheentarkistus?
 public class Reader {
 
     private HashMap<Character, Integer> symbols;
     private FileReader lukija;
     private File handle;
-
+    
     public Reader(File fileHandle) throws FileNotFoundException {
         handle = fileHandle;
         lukija = new FileReader(handle);
@@ -21,9 +22,9 @@ public class Reader {
     public HashMap<Character, Integer> getSymbols() {
         return symbols;
     }
-    
+
     public char readCharacter() throws IOException {
-        int raw;        
+        int raw;
         raw = lukija.read();
         if (raw == '\r') {
             raw = lukija.read();
@@ -53,4 +54,6 @@ public class Reader {
             }
         }
     }
+
+
 }

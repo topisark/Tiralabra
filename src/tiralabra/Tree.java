@@ -10,7 +10,7 @@ public class Tree {
     private HashMap<Character, Integer> symbols;
     private PriorityQueue<Node> prioq;
     private String[] codes;
-    public Node root;
+    private Node root;
 
     public Tree(Reader r) {
         symbols = r.getSymbols();
