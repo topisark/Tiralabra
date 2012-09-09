@@ -5,7 +5,6 @@ class Link {
     public boolean data;
     public Link next;
 
-    //Link constructor
     public Link(boolean data) {
         this.data = data;
     }

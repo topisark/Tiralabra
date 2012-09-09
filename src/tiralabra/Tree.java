@@ -8,13 +8,13 @@ import java.util.Set;
 public class Tree {
 
     private HashMap<Character, Integer> symbols;
-    private PriorityQueue<Node> prioq;
+    private PriorityQ prioq;
     private String[] codes;
     private Node root;
 
     public Tree(Reader r) {
         symbols = r.getSymbols();
-        prioq = new PriorityQueue<>();
+        prioq = new PriorityQ();
         iterateMap();
         createTree();
     }
