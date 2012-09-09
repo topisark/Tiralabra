@@ -1,17 +1,23 @@
 package tiralabra;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 
+/**
+ * The class used for reading a file.
+ *
+ */
 public class Reader {
 
     private HashMap<Character, Integer> symbols;
     private FileReader lukija;
     private File handle;
 
+    /**
+     * Creates a new Reader.
+     *
+     * @param fileHandle the file to read
+     */
     public Reader(File fileHandle) throws FileNotFoundException {
         handle = fileHandle;
         lukija = new FileReader(handle);
@@ -21,6 +27,11 @@ public class Reader {
         return symbols;
     }
 
+    /**
+     * Reads a single character and returns it. Some weirdness due to Windows'
+     * newline char but should function correctly.
+     *
+     */
     public char readCharacter() throws IOException {
         int raw;
         raw = lukija.read();
@@ -36,6 +47,10 @@ public class Reader {
 
     }
 
+    /**
+     * Puts the symbols with their frequencies into a hashmap.
+     *
+     */
     public void countCharacters() throws IOException, FileNotFoundException {
         int raw;
         int amount;

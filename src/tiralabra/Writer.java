@@ -1,13 +1,12 @@
 package tiralabra;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.LinkedList;
+import java.io.*;
 
+/**
+ * The class used for writing to files.
+ *
+ *
+ */
 public class Writer {
 
     private String[] codes;
@@ -21,18 +20,30 @@ public class Writer {
     private Tree tree;
     private Linked ll;
 
-    public Writer(Tree tree, String filename) throws FileNotFoundException, IOException {
+    /**
+     * Creates a new Writer.
+     *
+     * @param filename the name of the encoded file
+     * @param readFile the name of the file to read from
+     * @param tree the tree used to encode data
+     *
+     */
+    public Writer(Tree tree, String filename, String readFile) throws FileNotFoundException, IOException {
         codes = tree.getCodes();
         this.tree = tree;
         handle = new File(filename);
         writer = new FileOutputStream(handle);
-        File fileToRead = new File("testi.txt");
+        File fileToRead = new File(readFile);
         lukija = new Reader(fileToRead);
         fis = new FileInputStream(handle);
         fw = new FileWriter("decoded.txt");
         ll = new Linked();
     }
 
+    /**
+     * Writes the encoded text into a file.
+     *
+     */
     public void writeEncodedText() throws IOException {
         String code;
         ch = lukija.readCharacter();
@@ -42,13 +53,16 @@ public class Writer {
                 writeBit(Character.getNumericValue(code.charAt(i)));
             }
             ch = lukija.readCharacter();
-            if (ch == '\r') {              
-            }            
-        }  
-        System.out.println("Encoding done.");
+            if (ch == '\r') {
+            }
+        }
         writer.close();
     }
 
+    /**
+     * Decodes encoded text.
+     *
+     */
     public void decodeText() throws IOException {
         Node node = tree.getRoot();
         int read;
@@ -65,10 +79,10 @@ public class Writer {
             while (!node.isLeaf() && ll.size() > 0) {
                 b = ll.poll();
                 if (b) {
-                    node = node.getRight();                   
+                    node = node.getRight();
                 }
                 if (!b) {
-                    node = node.getLeft();                    
+                    node = node.getLeft();
                 }
             }
             if (node.getSymbol() == '\n') {
@@ -76,13 +90,16 @@ public class Writer {
                 fw.write('\n');
             } else {
                 fw.write(node.getSymbol());
-            }            
+            }
             node = tree.getRoot();
-        }        
-        System.out.println("Decoding done.");        
+        }
         fw.close();
     }
 
+    /**
+     * Writes bits one byte at a time.
+     *
+     */
     private void writeBit(int bit) throws IOException {
         tavu <<= 1;
         if (bit == 1) {
@@ -90,12 +107,18 @@ public class Writer {
         }
         bits++;
         if (bits == 8) {
-            writer.write(tavu);            
+            writer.write(tavu);
             tavu = 0;
             bits = 0;
         }
     }
 
+    /**
+     * Converts bytes into bit arrays.
+     * 
+     * @return a boolean array storing bits
+     *
+     */
     private boolean[] byteToBits(int byteToConvert) {
         if (byteToConvert < 0 || 255 < byteToConvert) {
             throw new IllegalArgumentException();

@@ -1,7 +1,7 @@
 package tiralabra;
 
 /**
- * Priority queue used for Huffman coding
+ * Priority queue used for Huffman coding.
  *
  */
 public class PriorityQ {
@@ -19,7 +19,7 @@ public class PriorityQ {
     }
 
     /**
-     * Returns the size of the queue
+     * Returns the size of the queue.
      *
      * @return size of the queue
      */
@@ -28,7 +28,7 @@ public class PriorityQ {
     }
 
     /**
-     * Adds a node to the priority queue
+     * Adds a node to the priority queue.
      *
      * @param node the node to add
      */
@@ -43,7 +43,7 @@ public class PriorityQ {
     }
 
     /**
-     * Deletes and returns the smallest node
+     * Deletes and returns the smallest node.
      *
      * @return the smallest node
      */
@@ -56,7 +56,7 @@ public class PriorityQ {
     }
 
     /**
-     * Returns the index of the parent
+     * Returns the index of the parent.
      *
      * @param loc the index of the node
      * @return the index of the parent
@@ -66,7 +66,7 @@ public class PriorityQ {
     }
 
     /**
-     * Returns the index of the left child
+     * Returns the index of the left child.
      *
      * @param loc the index
      * @return the index of the left child
@@ -76,7 +76,7 @@ public class PriorityQ {
     }
 
     /**
-     * Returns the index of the right child
+     * Returns the index of the right child.
      *
      * @param loc the index
      * @return the index of the right child
@@ -86,7 +86,7 @@ public class PriorityQ {
     }
 
     /**
-     * Heapify to keep the queue in priority order
+     * Heapify to keep the queue in priority order.
      *
      * @param i the index of the subtree to order
      */
